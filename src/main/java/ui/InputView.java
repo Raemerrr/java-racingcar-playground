@@ -15,15 +15,15 @@ public class InputView {
         int result;
         try {
             result = scanner.nextInt();
-            validateNumberOfLap(result);
+            validateTryCount(result);
         } catch (Exception e) {
             throw new RuntimeException("잘못된 입력입니다.");
         }
         return result;
     }
 
-    private static void validateNumberOfLap(int numberOfLap) {
-        if (numberOfLap <= 0) {
+    private static void validateTryCount(final int tryCount) {
+        if (tryCount <= 0) {
             throw new IllegalArgumentException("시도할 횟수는 0보다 커야합니다.");
         }
     }

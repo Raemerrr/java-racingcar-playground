@@ -15,6 +15,10 @@ public class Car {
         }
     }
 
+    public CarName getName() {
+        return this.name;
+    }
+
     public Position getPosition() {
         return new Position(this.position.getValue());
     }

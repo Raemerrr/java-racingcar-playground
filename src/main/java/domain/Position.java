@@ -9,7 +9,7 @@ public class Position {
         this(0);
     }
 
-    public Position(int input) {
+    public Position(final int input) {
         validateBoundaries(input);
         this.value = input;
     }
@@ -22,7 +22,7 @@ public class Position {
         this.value++;
     }
 
-    private void validateBoundaries(int input) {
+    private void validateBoundaries(final int input) {
         if (input < 0) {
             throw new IllegalArgumentException("0 보다 작을 수 없습니다.");
         }
