@@ -10,21 +10,18 @@ public class PositiveTest {
     @Test
     void 음수가_아닌_수_입력() {
         String input = "123";
-        Positive positive = new Positive(new StringAsInteger(input));
-        Assertions.assertDoesNotThrow(positive::intValue);
+        Assertions.assertDoesNotThrow(() -> new Positive(input));
     }
 
     @Test
     void 음수_입력() {
         String input = "-123";
-        Positive positive = new Positive(new StringAsInteger(input));
-        assertThrows(IllegalArgumentException.class, positive::intValue);
+        assertThrows(IllegalArgumentException.class, () -> new Positive(input));
     }
 
     @Test
     void 숫자가_아닌_입력() {
         String input = "ㄱㄴㄷㄹㅁ";
-        Positive positive = new Positive(new StringAsInteger(input));
-        assertThrows(IllegalArgumentException.class, positive::intValue);
+        assertThrows(IllegalArgumentException.class, () -> new Positive(input));
     }
 }

@@ -8,8 +8,8 @@ public class Positive {
         this.value = 0;
     }
 
-    public Positive(StringAsInteger value) {
-        this.value = value;
+    public Positive(String text){
+        this.value = new StringAsInteger(text);
         validatePositive();
     }
 
@@ -17,7 +17,7 @@ public class Positive {
         this.value = this.value.intValue() + 1;
     }
 
-    public int intValue() {
+    public Integer intValue() {
         return value.intValue();
     }
 

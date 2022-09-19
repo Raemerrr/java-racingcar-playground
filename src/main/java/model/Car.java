@@ -1,5 +1,7 @@
 package model;
 
+import java.util.function.Predicate;
+
 public class Car {
     private final CarName name;
     private final Positive distance;
@@ -9,11 +11,19 @@ public class Car {
         this.distance = new Positive();
     }
 
-    public String getName() {
-        return name.getCarName();
+    public CarName getName() {
+        return this.name;
     }
 
-    public int getDistance() {
-        return distance.intValue();
+    public Positive getDistance() {
+        return this.distance;
+    }
+
+    public PlayResult play(Predicate<Integer> predicate) {
+        Integer randomNumber = RandomGenerator.generate();
+        if (predicate.test(randomNumber)) {
+            this.distance.plus();
+        }
+        return new PlayResult(name, distance);
     }
 }
