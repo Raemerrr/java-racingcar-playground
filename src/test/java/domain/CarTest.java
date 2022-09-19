@@ -25,7 +25,7 @@ public class CarTest {
     @DisplayName("자동차 전진 조건 참")
     void 자동차_전진_조건_참() {
         Car car = new Car("pobi");
-        car.move(new FakeTrueMovementStrategy());
+        car.move(() -> true);
         assertThat(car.getPosition()).isEqualTo(new Position(1));
     }
 
@@ -33,21 +33,7 @@ public class CarTest {
     @DisplayName("자동차 전진 조건 거짓")
     void 자동차_전진_조건_거짓() {
         Car car = new Car("pobi");
-        car.move(new FakeFalseMovementStrategy());
+        car.move(() -> false);
         assertThat(car.getPosition()).isEqualTo(new Position(0));
-    }
-
-    static class FakeTrueMovementStrategy implements MovementStrategy {
-        @Override
-        public boolean isMovable() {
-            return true;
-        }
-    }
-
-    static class FakeFalseMovementStrategy implements MovementStrategy {
-        @Override
-        public boolean isMovable() {
-            return false;
-        }
     }
 }
